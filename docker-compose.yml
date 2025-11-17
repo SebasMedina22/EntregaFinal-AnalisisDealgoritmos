@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  server:
+    image: "${DOCKERHUB_USER:-sebas22x}/entregafinal-server:latest"
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.server
+    container_name: transaction_server
+    hostname: server
+    ports:
+      - "8080:8080"
+    networks:
+      - transaction_network
+    restart: unless-stopped
+
+  client:
+    image: "${DOCKERHUB_USER:-sebas22x}/entregafinal-client:latest"
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.client
+    container_name: transaction_client
+    depends_on:
+      - server
+    networks:
+      - transaction_network
+    command: ["./client", "50000", "Transferencia de prueba"]
+    restart: "no"
+
+networks:
+  transaction_network:
+    driver: bridge
+
