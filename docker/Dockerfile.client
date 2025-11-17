@@ -1,0 +1,23 @@
+FROM ubuntu:22.04
+
+# Evitar prompts interactivos durante la instalación
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Instalar dependencias necesarias
+RUN apt-get update && apt-get install -y \
+    g++ \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+# Crear directorio de trabajo
+WORKDIR /app/client
+
+# Copiar el código fuente
+COPY client/client.cpp /app/client/
+
+# Compilar el cliente
+RUN g++ -o client client.cpp -std=c++11
+
+# Ejecutar el cliente (se puede sobrescribir desde docker-compose)
+CMD ["./client"]
+
