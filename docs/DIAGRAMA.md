@@ -56,9 +56,10 @@
 - **Cliente**: genera token y lo adjunta a la transacción.
 - **Servidor**: repite el cálculo con los mismos datos; si el token coincide, la transacción es auténtica.
 
-## 3. Evidencia visual recomendada
+## 3. Evidencia visual
 
-Para la presentación/documentación se sugiere adjuntar:
-- Captura de `docker-compose up` mostrando cliente y servidor.
-- Capturas de Docker Desktop con los contenedores `transaction_server` y `transaction_client`.
-- Captura del mensaje “TRANSACCION_VALIDA” en la terminal del cliente.
+1. docker-compose up mostrando cliente/servidor:
+   <img width="1200" height="531" alt="image" src="https://github.com/user-attachments/assets/772f6399-4e3f-4584-a4f6-6c6f24e45cd1" />
+
+2. Contenedores en Docker Desktop:
+   <img width="1619" height="377" alt="image" src="https://github.com/user-attachments/assets/09192581-378e-4aef-b6d2-e42e694a752e" />
