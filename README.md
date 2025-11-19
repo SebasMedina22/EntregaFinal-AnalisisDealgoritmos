@@ -168,9 +168,6 @@ Si necesitas subir tus propias imágenes con otro usuario, define la variable `D
 
 ## Autores
 
-[Agregar nombres de los integrantes]
-
-## Licencia
-
-[Especificar licencia si aplica]
-
+Sebastian Medina
+Juan David Alvarez
+José Quintero
