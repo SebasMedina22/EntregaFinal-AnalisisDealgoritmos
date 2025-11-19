@@ -1,0 +1,26 @@
+FROM ubuntu:22.04
+
+# Evitar prompts interactivos durante la instalación
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Instalar dependencias necesarias
+RUN apt-get update && apt-get install -y \
+    g++ \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+# Crear directorio de trabajo
+WORKDIR /app/server
+
+# Copiar el código fuente
+COPY server/server.cpp /app/server/
+
+# Compilar el servidor
+RUN g++ -o server server.cpp -std=c++11
+
+# Exponer el puerto
+EXPOSE 8080
+
+# Ejecutar el servidor
+CMD ["./server"]
+
